@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'login.dart';
+import 'package:yan/login.dart';
 
 class SignUpScreen extends StatelessWidget {
   static const Color primaryColor = Color(0xFF4B145B);
@@ -11,109 +11,120 @@ class SignUpScreen extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
-          child: Center(
-            child: SingleChildScrollView(
-              child: Column(
+          child: ListView(
+            children: [
+              const SizedBox(height: 60),
+              Center(
+                child: Text(
+                  'Create Account',
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: primaryColor,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 30),
+
+              // Full Name
+              Text('Full Name', style: TextStyle(fontWeight: FontWeight.w600, color: primaryColor)),
+              const SizedBox(height: 8),
+              TextField(
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.person_outline),
+                  hintText: 'Enter your full name',
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              // Email Address
+              Text('Email Address', style: TextStyle(fontWeight: FontWeight.w600, color: primaryColor)),
+              const SizedBox(height: 8),
+              TextField(
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.email_outlined),
+                  hintText: 'Enter your email',
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              // Password
+              Text('Password', style: TextStyle(fontWeight: FontWeight.w600, color: primaryColor)),
+              const SizedBox(height: 8),
+              TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.lock_outline),
+                  hintText: 'Enter your password',
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              // Confirm Password
+              Text('Confirm Password', style: TextStyle(fontWeight: FontWeight.w600, color: primaryColor)),
+              const SizedBox(height: 8),
+              TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.lock_outline),
+                  hintText: 'Re-enter your password',
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                ),
+              ),
+              const SizedBox(height: 30),
+
+              // Sign Up button
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Action de Sign Up
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: primaryColor,
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  child: const Text(
+                    'Sign Up',
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              // Already have an account? Sign In
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Create Account',
-                    style: TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
+                    "Already have an account? ",
+                    style: TextStyle(fontSize: 14, color: Colors.black87),
                   ),
-                  const SizedBox(height: 16),
-                  Text(
-                    'Sign up to get started!',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey[600],
-                    ),
-                  ),
-                  const SizedBox(height: 32),
-                  TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Full Name',
-                      contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 18),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(color: primaryColor),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(color: primaryColor),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Email Address',
-                      contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 18),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(color: primaryColor),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(color: primaryColor),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      hintText: 'Password',
-                      contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 18),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(color: primaryColor),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(color: primaryColor),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: primaryColor,
-                      minimumSize: Size(double.infinity, 55),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-                    onPressed: () {},
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                    },
                     child: Text(
-                      'Sign Up',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  const SizedBox(height: 24),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('Already have an account? '),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Text(
-                          'Log In',
-                          style: TextStyle(
-                            color: primaryColor,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                      "log in",
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: primaryColor,
+                        fontWeight: FontWeight.bold,
+
                       ),
-                    ],
+                    ),
                   ),
                 ],
               ),
-            ),
+
+              const SizedBox(height: 30),
+            ],
           ),
         ),
       ),
