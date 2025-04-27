@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:yan/verification.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   static const Color primaryColor = Color(0xFF4B145B);
+
+  // Ajout du controller pour récupérer l'email
+  final TextEditingController _emailController = TextEditingController();
+
+  ForgotPasswordScreen({super.key}); // Ajout du constructeur
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +29,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                           shape: BoxShape.circle,
                           color: Colors.grey[300],
                         ),
-                        child: Padding(
+                        child: const Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Icon(Icons.close),
                         ),
@@ -31,7 +37,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 40),
-                  Text(
+                  const Text(
                     'Forgot your Password?',
                     style: TextStyle(
                       fontSize: 24,
@@ -51,17 +57,18 @@ class ForgotPasswordScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 32),
                   TextField(
+                    controller: _emailController, // Ajout du controller ici
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.email, color: primaryColor),
+                      prefixIcon: const Icon(Icons.email, color: Colors.white),
                       hintText: 'Enter Email Address',
-                      contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(color: primaryColor),
+                        borderSide: const BorderSide(color: primaryColor),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(color: primaryColor),
+                        borderSide: const BorderSide(color: primaryColor),
                       ),
                     ),
                   ),
@@ -69,16 +76,30 @@ class ForgotPasswordScreen extends StatelessWidget {
                   ElevatedButton.icon(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: primaryColor,
-                      minimumSize: Size(double.infinity, 55),
+                      minimumSize: const Size(double.infinity, 55),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                    onPressed: () {},
-                    icon: Icon(Icons.send),
-                    label: Text(
+                    onPressed: () {
+                      final email = _emailController.text.trim();
+                      if (email.isNotEmpty) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => VerificationPage(email: email),
+                          ),
+                        );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Please enter your email')),
+                        );
+                      }
+                    },
+                    icon: const Icon(Icons.send),
+                    label: const Text(
                       'Send',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 18, color:Colors.white),
                     ),
                   ),
                 ],

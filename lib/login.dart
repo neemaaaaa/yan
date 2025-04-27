@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yan/home.dart';
 import 'signup.dart'; // Import du fichier de SignUp
 import 'forgetpwd.dart'; // Import du fichier ForgotPassword
 
@@ -61,7 +62,12 @@ class LoginScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () { Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Home(),
+                    ),
+                  );},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: primaryColor,
                     padding: const EdgeInsets.symmetric(vertical: 16),
