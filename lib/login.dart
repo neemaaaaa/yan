@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:yan/home.dart';
-import 'signup.dart'; // Import du fichier de SignUp
-import 'forgetpwd.dart'; // Import du fichier ForgotPassword
+import 'package:yan/cours/home_page .dart';
+import 'signup.dart';
+import 'forgetpwd.dart';
 
 class LoginScreen extends StatelessWidget {
   static const Color primaryColor = Color(0xFF4B145B);
@@ -65,7 +65,7 @@ class LoginScreen extends StatelessWidget {
                   onPressed: () { Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Home(),
+                      builder: (context) => MainNavigationPage(),
                     ),
                   );},
                   style: ElevatedButton.styleFrom(
