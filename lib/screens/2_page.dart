@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:yan/screens/home_page.dart';
+import 'package:yan/screens/landing_page.dart';
 import 'package:yan/screens/3_page.dart';
+import 'package:yan/screens/login/login.dart';
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
 
@@ -14,21 +15,31 @@ class OnboardingScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
             children: [
-              Align(
-                alignment: Alignment.topRight,
-                child: TextButton(
-                  onPressed: () {
-                    // Action pour "Skip"
-                  },
-                  child: Text(
-                    'Skip',
-                    style: TextStyle(
-                      color: primaryColor,
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ),
+            Padding(
+  padding: const EdgeInsets.symmetric(vertical: 10),
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.end,
+    children: [
+      GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => LoginScreen()),
+          );
+        },
+        child: Text(
+          'Skip',
+          style: TextStyle(
+            color: primaryColor,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+    ],
+  ),
+),
+
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

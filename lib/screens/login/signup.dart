@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yan/login.dart';
+import 'package:yan/screens/login/login.dart';
 
 class SignUpScreen extends StatelessWidget {
   static const Color primaryColor = Color(0xFF4B145B);

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
 
-import 'package:yan/pwd.dart';
+import 'package:yan/screens/login/pwd.dart';
 
 class VerificationPage extends StatefulWidget {
   final String email;

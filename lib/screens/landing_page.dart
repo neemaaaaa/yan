@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:yan/screens/2_page.dart'; // Remplace par ton chemin correct
+import 'package:yan/screens/2_page.dart';
+import 'package:yan/screens/login/login.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,32 +13,38 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            // Top bar with Skip
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-
-                children: [
-
-                  Text(
-                    'Skip',
-                    style: TextStyle(
-                      color: primaryColor,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            
+           Padding(
+  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.end,
+    children: [
+      GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => LoginScreen()),
+          );
+        },
+        child: Text(
+          'Skip',
+          style: TextStyle(
+            color: primaryColor,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+    ],
+  ),
+),
             const SizedBox(height: 20),
 
             // Image
             Expanded(
               child: Center(
                 child: Image.asset(
-                  'assets/images/1.png', // <-- Mets ton image ici
+                  'assets/images/1.png', 
                   height: 300,
                 ),
               ),
@@ -84,7 +91,7 @@ class HomePage extends StatelessWidget {
 
             const SizedBox(height: 40),
 
-            // Petit bouton "Next" avec background violet
+            
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Row(
@@ -98,7 +105,7 @@ class HomePage extends StatelessWidget {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: primaryColor, // 👈 couleur violet ici
+                      backgroundColor: primaryColor,
                       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
@@ -109,7 +116,7 @@ class HomePage extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 16,
 
-                        color: Colors.white, // 👈 texte en blanc
+                        color: Colors.white, 
                       ),
                     ),
                   ),

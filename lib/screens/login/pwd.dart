@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yan/login.dart';
+import 'package:yan/screens/login/login.dart';
 
 
 class ResetPasswordScreen extends StatelessWidget {

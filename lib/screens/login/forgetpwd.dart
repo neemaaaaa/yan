@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yan/verification.dart';
+import 'package:yan/screens/login/verification.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   static const Color primaryColor = Color(0xFF4B145B);
