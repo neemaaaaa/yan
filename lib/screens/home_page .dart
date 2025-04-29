@@ -3,6 +3,11 @@ import 'package:yan/screens/chat/chat_home.dart';
 import 'package:yan/screens/cours/cour1.dart';
 import 'package:yan/screens/more/more_page.dart';
 
+// Palette de couleurs avec le violet demandé
+const primaryColor = Color(0xFF4B145B); // Violet original
+const secondaryColor = Colors.white;    // Blanc
+const backgroundColor = Color(0xFFF5F5F5); // Fond légèrement gris
+
 class MainNavigationPage extends StatefulWidget {
   @override
   _MainNavigationPageState createState() => _MainNavigationPageState();
@@ -31,10 +36,9 @@ class _MainNavigationPageState extends State<MainNavigationPage> {
           });
         },
         type: BottomNavigationBarType.fixed,
-        selectedItemColor:
-            Color(0xFF4B145B), // Couleur violette pour l'item actif
-        unselectedItemColor: Colors.grey, // Couleur grise pour les autres
-        backgroundColor: Colors.white, // Fond blanc
+        selectedItemColor: primaryColor, // Violet (0xFF4B145B)
+        unselectedItemColor: Colors.grey,
+        backgroundColor: secondaryColor, // Blanc
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -45,15 +49,15 @@ class _MainNavigationPageState extends State<MainNavigationPage> {
             label: 'Search',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
+            icon: Icon(Icons.email),
             label: 'Chat',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.book), // Icône pour Courses
+            icon: Icon(Icons.menu_book),
             label: 'Courses',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.more_vert), // Icône 3 points pour More
+            icon: Icon(Icons.more_horiz),
             label: 'More',
           ),
         ],
@@ -104,27 +108,26 @@ class HomePage extends StatelessWidget {
                         'assets/images/logo.png',
                         height: 80,
                       ),
-                      const SizedBox(
-                          width: 8), // spacing between logo and title
-                      const Text(
+                      const SizedBox(width: 8),
+                      Text(
                         'JobSphere',
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
-                          color: Colors.deepPurple,
+                          color: primaryColor, // Violet (0xFF4B145B)
                         ),
                       ),
                     ],
                   ),
                   const SizedBox(height: 10),
 
-                  // Profile Icon (aligned to right)
+                  // Profile Icon
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       CircleAvatar(
                         radius: 20,
-                        backgroundImage: AssetImage('assets/images/3.png'),
+                        backgroundImage: AssetImage('assets/images/profil3.png'),
                       ),
                     ],
                   ),
@@ -146,8 +149,8 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Row(
                 children: [
-                  Icon(Icons.folder, color: Colors.deepPurple),
-                  const SizedBox(width: 8), // space between icon and text
+                  Icon(Icons.folder, color: primaryColor), // Violet
+                  const SizedBox(width: 8),
                   Text(
                     'Categories',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -161,31 +164,25 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Row(
                 children: [
-                  _buildCategoryCard(
-                      'Cyber Security', '145 Courses', Icons.security),
+                  _buildCategoryCard('Cyber Security', '145 Courses', Icons.security),
                   const SizedBox(width: 10),
-                  _buildCategoryCard(
-                      'Data Science', '120 Courses', Icons.bar_chart),
+                  _buildCategoryCard('Data Science', '120 Courses', Icons.bar_chart),
                   const SizedBox(width: 10),
-                  _buildCategoryCard(
-                      'Web Development', '98 Courses', Icons.web),
+                  _buildCategoryCard('Web Development', '98 Courses', Icons.web),
                   const SizedBox(width: 10),
-                  _buildCategoryCard(
-                      'AI & Machine Learning', '85 Courses', Icons.memory),
+                  _buildCategoryCard('AI & Machine Learning', '85 Courses', Icons.memory),
                   const SizedBox(width: 10),
-                  _buildCategoryCard(
-                      'Graphic Design', '70 Courses', Icons.design_services),
+                  _buildCategoryCard('Graphic Design', '70 Courses', Icons.design_services),
                   const SizedBox(width: 10),
                   _buildCategoryCard('Marketing', '60 Courses', Icons.campaign),
                   const SizedBox(width: 10),
-                  _buildCategoryCard(
-                      'Business', '90 Courses', Icons.business_center),
+                  _buildCategoryCard('Business', '90 Courses', Icons.business_center),
                 ],
               ),
             ),
             const SizedBox(height: 20),
 
-// Divider between Categories and Posts
+            // Divider
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Divider(
@@ -201,7 +198,7 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Row(
                 children: [
-                  Icon(Icons.post_add, color: Colors.deepPurple),
+                  Icon(Icons.post_add, color: primaryColor), // Violet
                   const SizedBox(width: 8),
                   Text(
                     'Posts',
@@ -223,14 +220,14 @@ class HomePage extends StatelessWidget {
       width: 160,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.grey[100],
+        color: backgroundColor,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: Colors.grey.shade300),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(icon, size: 28, color: Colors.deepPurple),
+          Icon(icon, size: 28, color: primaryColor), // Violet
           const SizedBox(height: 10),
           Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
           const SizedBox(height: 4),
@@ -246,6 +243,7 @@ class HomePage extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       child: Card(
         elevation: 1,
+        color: secondaryColor, // Fond blanc
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -255,7 +253,7 @@ class HomePage extends StatelessWidget {
               Row(
                 children: [
                   const CircleAvatar(
-                    backgroundImage: AssetImage('assets/images/4.png'),
+                    backgroundImage: AssetImage('assets/images/profil2.png'),
                   ),
                   const SizedBox(width: 10),
                   Column(
@@ -274,7 +272,7 @@ class HomePage extends StatelessWidget {
               const SizedBox(height: 10),
               const Text(
                 'Hello, I am looking for a new career opportunity and would appreciate your support. '
-                'Thanks in advance for any contact recommendation, advice, or...',
+                    'Thanks in advance for any contact recommendation, advice, or...',
               ),
               const SizedBox(height: 12),
               Row(
@@ -317,13 +315,12 @@ class MyCoursesPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('My Courses'),
         elevation: 0,
+
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
             onPressed: () {
-              // Action de recherche
               print('Search icon pressed');
-              // Tu peux ici afficher une barre de recherche
             },
           ),
         ],
@@ -375,7 +372,7 @@ class MyCoursesPage extends StatelessWidget {
                       },
                       child: const Text('Explore Courses'),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFF4B145B),
+                        backgroundColor: primaryColor, // Violet
                         foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(
                             horizontal: 32, vertical: 12),

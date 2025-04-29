@@ -15,7 +15,7 @@ class MessagesPage extends StatelessWidget {
               children: [
                 SizedBox(height: 10),
                 Image.asset(
-                  'assets/images/logo.png',
+                  'assets/images/profil3.png',
                   height: 50,
                 ),
                 SizedBox(height: 10),
@@ -30,7 +30,7 @@ class MessagesPage extends StatelessWidget {
                     children: [
                       messageTile(
                         context: context,
-                        avatar: 'assets/images/logo.png',
+                        avatar: 'assets/images/profil2.png',
                         name: 'John Doe',
                         message: 'Roger that sir, thankyou',
                         time: '2m ago',
@@ -39,7 +39,7 @@ class MessagesPage extends StatelessWidget {
                       ),
                       messageTile(
                         context: context,
-                        avatar: 'assets/images/logo.png',
+                        avatar: 'assets/images/profil5.png',
                         name: 'Jack Williams',
                         message: 'Thanks for reaching us.',
                         time: '10m ago',
@@ -48,7 +48,7 @@ class MessagesPage extends StatelessWidget {
                       ),
                       messageTile(
                         context: context,
-                        avatar: 'assets/images/logo.png',
+                        avatar: 'assets/images/profil4.png',
                         name: 'Computer Dev',
                         message: 'Hello World!',
                         time: '58s ago',
