@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:yan/screens/chat/chat_home.dart';
 import 'package:yan/screens/cours/cour1.dart';
+import 'package:yan/screens/more/more_page.dart';
 
 class MainNavigationPage extends StatefulWidget {
   @override
@@ -12,9 +14,9 @@ class _MainNavigationPageState extends State<MainNavigationPage> {
   final List<Widget> _pages = [
     HomePage(),
     PlaceholderWidget(icon: Icons.search, title: 'Search'),
-    PlaceholderWidget(icon: Icons.chat, title: 'Chat'),
+    MessagesPage(),
     MyCoursesPage(),
-    PlaceholderWidget(icon: Icons.more_vert, title: 'More'),
+    MorePage(),
   ];
 
   @override

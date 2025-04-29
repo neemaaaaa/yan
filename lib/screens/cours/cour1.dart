@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yan/screens/cours/overview.dart';
 
 
 class PageOne extends StatefulWidget {
@@ -131,7 +132,10 @@ class CourseCard extends StatelessWidget {
             SizedBox(height: 16),
             Center(
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>  CourseDetailPage()),
+                );},
                 child: Text('Start Learning'),
               ),
             ),
