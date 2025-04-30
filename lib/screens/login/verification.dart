@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:yan/screens/login/login.dart';
 import 'dart:async';
 
 import 'package:yan/screens/login/pwd.dart';
@@ -191,7 +192,14 @@ class _VerificationPageState extends State<VerificationPage> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: _verifyCode,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LoginScreen(),
+                    ),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: primaryColor,
                   padding: const EdgeInsets.symmetric(vertical: 16),
@@ -199,6 +207,7 @@ class _VerificationPageState extends State<VerificationPage> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
+
                 child: const Text(
                   'Confirm',
                   style: TextStyle(fontSize: 16 , color:Colors.white),

@@ -66,7 +66,7 @@ class HomePage extends StatelessWidget {
 
             // Title
             Text(
-              'Welcome to YAN',
+              'Welcome to JobSphere',
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,

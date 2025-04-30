@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:yan/screens/login/login.dart';
+import 'package:yan/screens/login/verification.dart';
 
 class SignUpScreen extends StatelessWidget {
   static const Color primaryColor = Color(0xFF4B145B);
+
+  final TextEditingController fullNameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController = TextEditingController();
+
+  SignUpScreen({Key? key}) : super(key: key); // constructeur nécessaire pour utiliser controllers
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +38,7 @@ class SignUpScreen extends StatelessWidget {
               Text('Full Name', style: TextStyle(fontWeight: FontWeight.w600, color: primaryColor)),
               const SizedBox(height: 8),
               TextField(
+                controller: fullNameController,
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.person_outline),
                   hintText: 'Enter your full name',
@@ -42,6 +51,7 @@ class SignUpScreen extends StatelessWidget {
               Text('Email Address', style: TextStyle(fontWeight: FontWeight.w600, color: primaryColor)),
               const SizedBox(height: 8),
               TextField(
+                controller: emailController,
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.email_outlined),
                   hintText: 'Enter your email',
@@ -54,6 +64,7 @@ class SignUpScreen extends StatelessWidget {
               Text('Password', style: TextStyle(fontWeight: FontWeight.w600, color: primaryColor)),
               const SizedBox(height: 8),
               TextField(
+                controller: passwordController,
                 obscureText: true,
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.lock_outline),
@@ -67,6 +78,7 @@ class SignUpScreen extends StatelessWidget {
               Text('Confirm Password', style: TextStyle(fontWeight: FontWeight.w600, color: primaryColor)),
               const SizedBox(height: 8),
               TextField(
+                controller: confirmPasswordController,
                 obscureText: true,
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.lock_outline),
@@ -81,7 +93,12 @@ class SignUpScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Action de Sign Up
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => VerificationPage(email: emailController.text),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: primaryColor,
@@ -116,13 +133,11 @@ class SignUpScreen extends StatelessWidget {
                         fontSize: 14,
                         color: primaryColor,
                         fontWeight: FontWeight.bold,
-
                       ),
                     ),
                   ),
                 ],
               ),
-
               const SizedBox(height: 30),
             ],
           ),
